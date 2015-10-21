@@ -646,7 +646,7 @@ func retrieveVMImageDetails(
 
 	var labels []string
 	for _, img := range imgs.VMImages {
-		if img.Label == label {
+		if img.Name == label {
 			if img.OSDiskConfiguration.OS != linux && img.OSDiskConfiguration.OS != windows {
 				return nil, "", nil, fmt.Errorf("Unsupported image OS: %s", img.OSDiskConfiguration.OS)
 			}
@@ -681,7 +681,7 @@ func retrieveOSImageDetails(
 
 	var labels []string
 	for _, img := range imgs.OSImages {
-		if img.Label == label {
+		if img.Name == label {
 			if img.OS != linux && img.OS != windows {
 				return nil, "", nil, fmt.Errorf("Unsupported image OS: %s", img.OS)
 			}
